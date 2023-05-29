@@ -1,10 +1,39 @@
 .container { 
+  height: 100vh;
+}
+
+.info-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.author-info {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.button {
+  width: 8rem;
+}
+
+.loading-screen {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body{ 
   margin: 0px;
  }
+

@@ -1,0 +1,12 @@
+.forbidden-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.forbidden-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

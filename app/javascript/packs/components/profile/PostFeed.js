@@ -1,14 +1,13 @@
 import React, {Fragment} from "react"
 import Post from "./Post";
 
-const PostFeed = ({ posts }) => {
+const PostFeed = ({ header, posts }) => {
 
 return( <Fragment>
-        <div className="post-feed">
+          <h1 className="mb-3">{header}</h1>
           {posts.map((post, index) => (
             <Post key={index} {...post} />
           ))}
-        </div>
       </Fragment>)
   };
 

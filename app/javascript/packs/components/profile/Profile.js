@@ -9,6 +9,7 @@ const Profile = ({data, token, disabled }) => {
   const postData = [
     { author: "John Doe", content: "Just got my new job at Google! #newjob" },
     { author: "John Doe", content: "Learning more about artificial intelligence every day! #AI #learning" },
+    { author: "John Doe", content: "Coding, coding, coding.." },
     // more posts...
   ];
 debugger
@@ -17,7 +18,12 @@ debugger
   return (<Fragment>
     <div className="profile-page">
       <ProfileHeader {...data} token={token} disabled={disabled}/>
-      <PostFeed posts={postData} />
+      <div className="post-feed">
+        <PostFeed posts={postData} header={'Experience'}/>
+        <br />
+        <br />
+        <PostFeed posts={postData} header={'Education'}/>
+      </div>
       <SideBar about={about} className={'sidebar'}/>
     </div>
   </Fragment>

@@ -2,6 +2,7 @@ import WebpackerReact from 'webpacker-react'
 import Container from './components/container/Container'
 import Forbidden from './components/forbidden/forbidden'
 import Home from './components/home/home'
+import TemporaryContainer from './components/temporaryContainer/TemporaryContainer'
 
 // import * as bootstrap from 'bootstrap'
 // document.addEventListener("DOMContentLoaded", function(event) {
@@ -11,4 +12,4 @@ import Home from './components/home/home'
 //   })
 // })
 
-WebpackerReact.setup({Container, Forbidden, Home})
+WebpackerReact.setup({Container, Forbidden, Home, TemporaryContainer})

@@ -1,10 +1,10 @@
 import React, {Fragment, useState, useEffect} from "react";
 import Loader from "../loader/Loader";
 import Profile from "../profile/Profile";
-import './container.scss';
+import './../container/container.scss';
 import axios from 'axios';
 
-const Container = ({token}) => {
+const TemporaryContainer = ({token}) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     async function fetchData() {
@@ -27,10 +27,11 @@ const Container = ({token}) => {
   return (<Fragment>
 
     <div className="container">
-      <Profile data={data} token={token} disabled={false}/>
+      <Profile data={data} token={token} disabled={true}/>
     </div>
     </Fragment>
   );
 }
 
-export default Container;
+export default TemporaryContainer;
+

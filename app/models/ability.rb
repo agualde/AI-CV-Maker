@@ -6,8 +6,9 @@ class Ability
   def initialize(user) 
     user ||= User.new # guest user (not logged in)
 
-    # can :read, :all
-    can :create, Author
+    can :generate, :temporary_links
+
+    # can :read, Author
     can :manage, Author, user_id: user.id
 
     return unless user.try(:admin?)

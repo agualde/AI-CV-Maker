@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 import './profile.scss';
 
 const ProfileHeader = ({ name, title, location, avatar, token, disabled, about }) => {
-debugger
+
   return( <Fragment>
     <div className="profile-header">
       <img src={avatar} alt={`${name}'s avatar`} />

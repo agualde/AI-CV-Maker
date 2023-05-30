@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import ProfileHeader from "./ProfileHeader";
 import PostFeed from "./PostFeed";
-import SideBar from "./SideBar";
+import Icons from "./Icons";
 import './profile.scss';
 
 
@@ -12,7 +12,7 @@ const Profile = ({data, token, disabled }) => {
     { author: "John Doe", content: "Coding, coding, coding.." },
     // more posts...
   ];
-debugger
+
   const  {about} = data
 
   return (<Fragment>
@@ -24,7 +24,7 @@ debugger
         <br />
         <PostFeed posts={postData} header={'Education'}/>
       </div>
-      <SideBar about={about} className={'sidebar'}/>
+      <Icons/>
     </div>
   </Fragment>
   );

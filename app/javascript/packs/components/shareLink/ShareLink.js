@@ -4,30 +4,24 @@ import axios from 'axios';
 
 const ShareLink = ({token, disabled = false}) => {
 
-  const [url, setUrl] = useState(null);
-
-  useEffect(() => {
-    if (!disabled) {
-      async function fetchData() {
-        try {
-          const baseUrl = 'http://localhost:3000'
-          const endPoint = `/api/v1/generate_link/${token}`
-          const url = `${baseUrl}${endPoint}`
-          const response = await axios.post(url, { token: token });
-  
-          setUrl(response.data['url']);
-        } catch (err) {
-          window.location.href = '/forbidden';
-        }
-      }
-  
-      fetchData();
+  async function fetchData() {
+    try {
+      const baseUrl = 'http://localhost:3000'
+      const endPoint = `/api/v1/generate_link/${token}`
+      const url = `${baseUrl}${endPoint}`
+      const response = await axios.post(url, { token: token });
+      
+      const copyUrl = response.data['url'];
+      debugger
+      navigator.clipboard.writeText(copyUrl)
+    } catch (err) {
+      window.location.href = '/forbidden';
     }
+  }  
 
-  }, [disabled]);
 
   const handleClick = () => {
-    navigator.clipboard.writeText(url)
+    fetchData();
   };
 
   return (<Fragment>

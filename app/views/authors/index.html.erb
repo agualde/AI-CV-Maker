@@ -1,3 +1,0 @@
-<% @authors.each do |author| %>
-  <%= link_to author.name, author_path(JwtHelper.encrypt(author.id)) %>
-<% end %>

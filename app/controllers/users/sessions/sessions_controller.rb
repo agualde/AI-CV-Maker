@@ -4,7 +4,7 @@ class Users::Sessions::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   def after_sign_in_path_for(resource)
-    author_path(current_user) # Replace with your desired path
+    core_infos_path(current_user) # Replace with your desired path
   end
 
   # GET /resource/sign_in

@@ -20,6 +20,7 @@ gem 'webpacker-react'
 gem 'active_model_serializers'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'jwt'
+gem 'pg'
 
 gem 'dotenv-rails', groups: [:development, :test]
 

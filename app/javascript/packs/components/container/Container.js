@@ -10,7 +10,7 @@ const Container = ({token}) => {
     async function fetchData() {
       try {
         const baseUrl = 'http://localhost:3000'
-        const endPoint = `/api/v1/authors/${token}`
+        const endPoint = `/api/v1/core_infos/${token}`
         const url = `${baseUrl}${endPoint}`
         const response = await axios.get(url);
 

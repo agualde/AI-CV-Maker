@@ -7,18 +7,18 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get '/forbidden', to: 'home#forbidden'
-  root to: 'authors#index'
+  root to: 'core_infos#show'
   
-  get 'authors/:token', to: 'authors#show', constraints: { token: /[^\/]+/ }, format: false, as: 'author'
+  get 'core_infos/:id', to: 'core_infos#show', as: 'core_info'
 
   namespace :api do
     namespace :v1 do
-      get 'authors/:token', to: 'authors#show', constraints: { token: /[^\/]+/ }, as: 'author'
+      get 'core_infos/:token', to: 'core_infos#show', constraints: { token: /[^\/]+/ }, as: 'core_info'
 
       post '/generate_link/:token', to: 'temporary_links#generate', constraints: { token: /[^\/]+/ }, format: false, as: 'generate_link'
-      get '/show_link/:token', to: 'temporary_authors#show', constraints: { token: /[^\/]+/ }, format: false, as: 'show_link'
+      get '/show_link/:token', to: 'temporary_core_infos#show', constraints: { token: /[^\/]+/ }, format: false, as: 'show_link'
     end
   end
   
-  get 'authors', to: 'authors#index'
+  get 'core_infos', to: 'core_infos#index'
 end

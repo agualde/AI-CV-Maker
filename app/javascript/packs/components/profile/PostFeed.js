@@ -4,7 +4,7 @@ import Post from "./Post";
 const PostFeed = ({ header, posts }) => {
 
 return( <Fragment>
-          <h1 className="mb-3">{header}</h1>
+          <h1 className="mb-4">{header}</h1>
           {posts.map((post, index) => (
             <Post key={index} {...post} />
           ))}

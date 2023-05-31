@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Author < ApplicationRecord
+class CoreInfo < ApplicationRecord
   belongs_to :user
 end

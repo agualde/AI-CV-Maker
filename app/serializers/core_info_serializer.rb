@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AuthorSerializer < ActiveModel::Serializer
+class CoreInfoSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
              :location,

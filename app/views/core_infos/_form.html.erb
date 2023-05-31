@@ -1,10 +1,10 @@
-<%= form_with(model: author) do |form| %>
-  <% if author.errors.any? %>
+<%= form_with(model: core_info) do |form| %>
+  <% if core_info.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
+      <h2><%= pluralize(core_info.errors.count, "error") %> prohibited this core_info from being saved:</h2>
 
       <ul>
-        <% author.errors.each do |error| %>
+        <% core_info.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-class AuthorsController < ApplicationController
+class CoreInfosController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
   def index
   end
 
-  # GET /authors/1 or /authors/1.json
   def show
-    @token = params[:token]
+    byebug
+    encrypted_id = params[:id]
+    @token = JwtHelper.encrypt(encrypted_id)
   end
 end

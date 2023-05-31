@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class TemporaryAuthorsController < ApplicationController
+    class TemporaryCoreInfosController < ApplicationController
       def show
         @token = params[:token]
       end

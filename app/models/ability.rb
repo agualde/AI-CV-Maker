@@ -8,8 +8,7 @@ class Ability
 
     can :generate, :temporary_links
 
-    # can :read, Author
-    can :manage, Author, user_id: user.id
+    can :manage, CoreInfo, user_id: user.id
 
     return unless user.try(:admin?)
     can :manage, :all

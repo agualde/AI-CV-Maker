@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/sessions/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/forbidden', to: 'home#forbidden'
   root to: 'core_infos#show'
   
-  get 'core_infos/:id', to: 'core_infos#show', as: 'core_info'
+  get 'c/:id', to: 'core_infos#show', as: 'core_info'
 
   namespace :api do
     namespace :v1 do

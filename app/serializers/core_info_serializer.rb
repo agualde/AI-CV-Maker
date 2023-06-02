@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CoreInfoSerializer < ActiveModel::Serializer
+  include OpenAiConstants
+
   attributes :id,
              :name,
              :location,
@@ -10,16 +12,19 @@ class CoreInfoSerializer < ActiveModel::Serializer
              :about
 
   def email
-    "#{object.name.downcase.gsub(' ', '')}@gmail.com"
+    "#{object.name&.downcase&.gsub(' ', '')}@gmail.com"
   end
 
   def name
-    object.name.capitalize
+    object.name&.capitalize
   end
 
-  def title
-    'Software Engineer'
-  end
+  # def title
+  #   return unless object.about_text.present? && object.title.present?
+
+  #   message = "#{object.about_text}. Let's do a constraint. use 1-4 words for my title, and try to not repeat my current title: #{object.title}"
+  #   OpenAiService.new(MARKETING_CONSULTANT_ROLE_PROMPT, message).call
+  # end
 
   def location 
     object.country
@@ -30,6 +35,10 @@ class CoreInfoSerializer < ActiveModel::Serializer
   end
 
   def about
-    "Experienced Software Engineer with a demonstrated history of working in the computer software industry. Skilled in Ruby on Rails, React.js, and other programming languages."
+    object.about_text
+    # return unless object.about_text.present?
+
+    # message = object.about_text
+    # OpenAiService.new(MARKETING_CONSULTANT_PROMPT, message).call
   end
 end

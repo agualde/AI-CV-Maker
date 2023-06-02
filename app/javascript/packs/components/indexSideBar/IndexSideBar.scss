@@ -1,0 +1,75 @@
+.index-side-bar {
+
+}
+
+.index-tower {
+  height: 93vh;
+  border-bottom: 1px solid white;
+  overflow: scroll;
+}
+
+.index-links {
+  display: flex;
+  justify-content: flex-start;
+  margin-inline: 1.5rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+
+.index-item{
+  margin-block: 0.25rem;
+  color: white;
+  cursor: pointer;
+  margin-inline: 0.5rem;
+  width: -webkit-fill-available;
+  text-align: start;
+  padding-inline: 1rem;
+  padding-block: 0.59rem;
+}
+
+.selected {
+  background-color: rgba(223, 205, 205, 0.21);
+}
+
+.index-item:hover{
+  background-color: #ffffff73;
+  color: white;
+}
+
+.index-header{
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.post-button {
+  margin-block: 0.5rem;
+  color: white;
+  cursor: pointer;
+  margin-inline: 0.5rem;
+  width: -webkit-fill-available;
+  padding-inline: 1.5rem;
+  text-align: start;
+  background-color: rgba(255, 255, 255, 0);
+  padding-block: 1.3rem;
+  border: 1px solid rgba(215, 215, 215, 0.2117647059);
+}
+
+.post-button:hover{
+  background-color: #ffffff73;
+  color: white;
+}
+
+.index-list{
+  padding-top: 1rem;
+}
+
+.index-avatar{
+  width: 3rem;
+  background-color: red;
+}
+
+.btn {
+  transition: color 0.05s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

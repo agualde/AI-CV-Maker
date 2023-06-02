@@ -3,9 +3,11 @@ import Loader from "../loader/Loader";
 import Profile from "../profile/Profile";
 import './container.scss';
 import axios from 'axios';
+import IndexSideBar from "../indexSideBar/IndexSideBar";
 
 const Container = ({token}) => {
   const [data, setData] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -16,6 +18,7 @@ const Container = ({token}) => {
 
         setData(response.data);
       } catch (err) {
+        console.log(err)
         window.location.href = '/forbidden';
       }
     }
@@ -23,14 +26,41 @@ const Container = ({token}) => {
     fetchData();
   }, []);
 
-  if (!data) return <Loader/>
-  return (<Fragment>
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    height: '100%',
+  };
+  
+  const indexStyle = {
+    flex: 2,
+    backgroundColor: "#202123",
+    overflowY: 'auto',
+    height: '100vh'
+  };
+  
+  const showStyle = {
+    flex: 12,
+    overflowY: 'auto',
+    height: '100vh'
+  };
 
-    <div className="container">
-      <Profile data={data} token={token} disabled={false}/>
+  if (!data) return <Loader/>
+
+  return (<Fragment>
+    <div className="custom-container" style={containerStyle}>
+      <div style={indexStyle}>
+        <IndexSideBar data={data}/>
+      </div>
+      <div style={showStyle}>
+        <Profile data={data} token={token} disabled={false}/>
+      </div>
     </div>
     </Fragment>
   );
 }
+
+
 
 export default Container;

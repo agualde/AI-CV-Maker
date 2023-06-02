@@ -8,8 +8,8 @@ class CoreInfosController < ApplicationController
   end
 
   def show
-    byebug
-    encrypted_id = params[:id]
+    core_info = CoreInfo.find_or_create_by(user: current_user)
+    encrypted_id = core_info.id
     @token = JwtHelper.encrypt(encrypted_id)
   end
 end

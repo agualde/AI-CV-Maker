@@ -21,6 +21,8 @@ gem 'active_model_serializers'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'jwt'
 gem 'pg'
+gem 'chatgpt-ruby'
+gem "ruby-openai"
 
 gem 'dotenv-rails', groups: [:development, :test]
 

@@ -6,5 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :core_infos
+  has_many :core_infos
+  accepts_nested_attributes_for :core_infos
 end

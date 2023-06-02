@@ -4,7 +4,7 @@
   justify-content: space-around;
   margin: 0 auto;
   max-width: 1200px;
-  margin-top: 4rem;
+  padding-top: 4rem;
 }
 
 .profile-header {
@@ -65,10 +65,22 @@
 }
 
 .info {
-
+  width: 100%;
 }
 
 .invisible-link {
   color: black;
   text-decoration: none;
+}
+
+.chat-gpt {
+  cursor: pointer;
+}
+
+.section-loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }

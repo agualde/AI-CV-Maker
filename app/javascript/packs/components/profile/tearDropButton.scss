@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 15rem;
 }
 
 .tearDropButton {
@@ -13,7 +14,7 @@
   text-align: center;
   display: inline-block;
   transition-duration: 0.4s;
-  padding: 15px 35px;
+  padding: 9px 25px;
   border-radius: 0% 0% 100% 100%;
-  background-color: #ffce00;
+  font-size: 13px;
 }

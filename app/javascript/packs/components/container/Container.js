@@ -43,7 +43,8 @@ const Container = ({token}) => {
   const showStyle = {
     flex: 12,
     overflowY: 'auto',
-    height: '100vh'
+    height: '100vh',
+    backgroundColor: 'white'
   };
 
   if (!data) return <Loader/>

@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   
   get 'c/:id', to: 'core_infos#show', as: 'core_info'
 
+  
   namespace :api do
     namespace :v1 do
       get 'core_infos/:token', to: 'core_infos#show', constraints: { token: /[^\/]+/ }, as: 'core_info'
+      post '/p', to: 'gpt#serialize', as: 'gpt'
 
       post '/generate_link/:token', to: 'temporary_links#generate', constraints: { token: /[^\/]+/ }, format: false, as: 'generate_link'
       get '/show_link/:token', to: 'temporary_core_infos#show', constraints: { token: /[^\/]+/ }, format: false, as: 'show_link'

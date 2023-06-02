@@ -7,9 +7,6 @@ import './profile.scss';
 
 
 const Profile = ({data, token, disabled }) => {
-  const handleClick = () => {
-    console.log('Button clicked');
-  };
 
   const postData = [
     { author: "John Doe", content: "Just got my new job at Google! #newjob" },
@@ -21,9 +18,14 @@ const Profile = ({data, token, disabled }) => {
   const  {about} = data
 
   return (<Fragment>
-    <div style={{position:'sticky', top:'0px'}}>
-      <TearDropButton text="C" onClick={handleClick} />
+    {/* <div style={{position:'sticky', top:'0px'}}>
+      <TearDropButton text="🤖" disabled={disabled} padding={'18rem'} color={'#ffce00'} token={token} fontSize={'30px'}/>
     </div>
+
+    <div style={{position:'sticky', top:'0px'}}>
+      <TearDropButton text="Save" disabled={disabled} padding={'12rem'} color={'green'} token={token} />
+    </div> */}
+
     <div className="profile-page">
       <ProfileHeader {...data} token={token} disabled={disabled}/>
       <div className="post-feed">

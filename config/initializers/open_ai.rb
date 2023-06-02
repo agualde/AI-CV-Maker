@@ -10,7 +10,7 @@ class OpenAi
     response = OpenAi.instance.chat(
       parameters: {
         model: options[:model] || "gpt-3.5-turbo", # Required.
-        messages: [{ role: "user", content: messgae}], # Required.
+        messages: [{ role: "user", content: message}], # Required.
           temperature: options[:temperatue] || 1.0,
       })
 

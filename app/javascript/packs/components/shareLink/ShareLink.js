@@ -24,9 +24,14 @@ const ShareLink = ({token, disabled = false}) => {
     fetchData();
   };
 
+  if (disabled) {
+    return ( <Fragment />
+  );
+  }
+debugger
   return (<Fragment>
       <div className="button-container">
-        <button className="btn btn-primary button" onClick={handleClick} disabled={disabled}>COPY SHARE LINK</button>
+        {!disabled && <button className="btn btn-primary button" onClick={handleClick} disabled={disabled}>COPY SHARE LINK</button>}
       </div>
     </Fragment>
   );

@@ -5,13 +5,12 @@ import menu2 from "react-useanimations/lib/menu2";
 
 const UserFunction = ({data}) => {
 
+  const [animationKey, setAnimationKey] = useState(0);
+
   return(<Fragment>
     <div className="index-links btn">
-      <div class="index-avatar">
-        <img src="" alt="" />
-      </div>
-      <button className="btn" style={{color: 'white'}}> {data['email']} </button>
-      <UseAnimations animation={menu2} size={56} strokeColor={'#FFFFFF'}/>
+      <button onClick={() => setAnimationKey(prevKey => prevKey + 1)} className="btn" style={{color: 'white'}}> {data['email']} </button>
+      <UseAnimations key={animationKey} animation={menu2} size={25} strokeColor={'#FFFFFF'}/>
     </div>
   </Fragment>)
 }

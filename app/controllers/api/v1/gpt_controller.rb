@@ -5,13 +5,11 @@ module Api
     class GptController < ActionController::API
       before_action :authenticate_user!
 
-      include OpenAiConstants
-
-      # load_and_authorize_resource
-
       def serialize
         data = JSON.parse(request.body.read)
-        response = OpenAiService.new(MARKETING_CONSULTANT_PROMPT, data).call
+        prompt_key = data.keys[0]
+        data = data[prompt_key]
+        response = OpenAiService.new(prompt_key, data).call
 
         render json: { data: response }
       end

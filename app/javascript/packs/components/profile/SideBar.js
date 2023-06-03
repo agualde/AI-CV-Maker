@@ -4,7 +4,7 @@ import Loader from "../loader/Loader";
 import axios from 'axios';
 import './profile.scss'
 
-import myImage from '../../../../assets/images/refresh';
+import myImage from '../../../../assets/images/robot-with-a-gear';
 
 const SideBar = ({ about, className, disabled, token }) => {
   const [waiting, setWaiting] = useState(false);
@@ -38,10 +38,10 @@ const SideBar = ({ about, className, disabled, token }) => {
     }
   };
 
-  const postData = async (about) => {
+  const postDataToGpt = async (about) => {
     try {
       setWaiting(true)
-      const response = await axios.post('/api/v1/p/', about, {
+      const response = await axios.post('/api/v1/p/', {about: about}, {
         headers: {
           'X-CSRF-Token': getCsrfToken(),
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const SideBar = ({ about, className, disabled, token }) => {
   };
 
   const handleClick = (about) => {
-    postData(about);
+    postDataToGpt(about);
   }
 
   const dataChanged = (data) => {
@@ -78,9 +78,7 @@ const SideBar = ({ about, className, disabled, token }) => {
             <div className={className}>
               <div style={{display:'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center'}}>
                 <h3>About</h3>
-                  <div>
-                    {!disabled && <img src={myImage} className={'chat-gpt'} alt="" onClick={() => {handleClick(data)}} /> }
-                  </div>
+          
                 </div>
                   <InlineEdit
                     text={data}
@@ -88,7 +86,14 @@ const SideBar = ({ about, className, disabled, token }) => {
                     paramName="message"
                     change={dataChanged}
                     editingElement="textarea"
+                    validate={() => true}
+                    editMode={false}
+                    placeholder={'Tell us about yourself!'}
                   />
+
+                  <div style={{ paddingRight: '1rem' }}>
+                    {!disabled &&   <div onClick={() => {handleClick(data)}} className={'chat-gpt btn btn-warning'}> GENERATE TEXT </div> }
+                  </div>
               </div>
             <div/>
           </Fragment>

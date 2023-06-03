@@ -1,16 +1,21 @@
 class OpenAiService
-  attr_accessor :message, :prompt
+  attr_accessor :message, :key
+  include OpenAiConstants
 
-  def initialize(prompt, message)
-    @prompt = prompt
+  DICTIONARY = {
+    about: ABOUT_SECTION_PROMPT,
+    role: ROLE_PROMPT
+  }
+
+  def initialize(key, message)
+    @key = key.to_sym
     @message = message
   end
 
   def call
-    response = OpenAi.complete("#{prompt} #{message}")
+    response = OpenAi.complete("#{DICTIONARY[key]} #{message}")
     JSON.parse(response)['new_text']
-  rescue => e
-    byebug
-    'Error processing the response, please try again!'
+  rescue
+    message
   end
 end

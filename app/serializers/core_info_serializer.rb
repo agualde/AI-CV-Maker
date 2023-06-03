@@ -16,15 +16,8 @@ class CoreInfoSerializer < ActiveModel::Serializer
   end
 
   def name
-    object.name&.capitalize
+    "#{object.name&.capitalize} #{object.last_name&.capitalize}"
   end
-
-  # def title
-  #   return unless object.about_text.present? && object.title.present?
-
-  #   message = "#{object.about_text}. Let's do a constraint. use 1-4 words for my title, and try to not repeat my current title: #{object.title}"
-  #   OpenAiService.new(MARKETING_CONSULTANT_ROLE_PROMPT, message).call
-  # end
 
   def location 
     object.country
@@ -36,9 +29,5 @@ class CoreInfoSerializer < ActiveModel::Serializer
 
   def about
     object.about_text
-    # return unless object.about_text.present?
-
-    # message = object.about_text
-    # OpenAiService.new(MARKETING_CONSULTANT_PROMPT, message).call
   end
 end

@@ -22,8 +22,9 @@
 }
 
 .profile-header h1 {
-  margin: 10px 0;
+  margin: 22px 0px 10px;
   white-space: nowrap;
+  font-size: 2rem;
 }
 
 .profile-header h3, .profile-header p {
@@ -75,9 +76,14 @@
 }
 
 .chat-gpt {
+  color: white;
   cursor: pointer;
-  height: 1rem!important;
-  width: 100%!important;
+  width: 100% !important;
+  margin-top: 1rem;
+}
+
+.chat-gpt:hover{
+  color: white;
 }
 
 .section-loader{

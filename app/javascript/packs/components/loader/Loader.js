@@ -5,7 +5,7 @@ import './loader.scss';
 const Loader = () => {
 
 return (<Fragment>
-        <div className="loading-screen">
+        <div className="">
           <div className="loader"></div>
         </div>
         </Fragment>

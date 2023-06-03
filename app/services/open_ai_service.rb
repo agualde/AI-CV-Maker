@@ -10,6 +10,7 @@ class OpenAiService
     response = OpenAi.complete("#{prompt} #{message}")
     JSON.parse(response)['new_text']
   rescue => e
+    byebug
     'Error processing the response, please try again!'
   end
 end

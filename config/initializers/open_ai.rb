@@ -6,7 +6,7 @@ class OpenAi
     @instance ||= OpenAI::Client.new
   end
 
-  def self.complete(messgae, options = {}) 
+  def self.complete(message, options = {}) 
     response = OpenAi.instance.chat(
       parameters: {
         model: options[:model] || "gpt-3.5-turbo", # Required.
@@ -16,6 +16,6 @@ class OpenAi
 
     response.dig("choices", 0, "message", "content")
   rescue => e
-    Rails.loger.error(e.response)
+    byebug
   end
 end

@@ -12,7 +12,6 @@ const ShareLink = ({token, disabled = false}) => {
       const response = await axios.post(url, { token: token });
       
       const copyUrl = response.data['url'];
-      debugger
       navigator.clipboard.writeText(copyUrl)
     } catch (err) {
       window.location.href = '/forbidden';
@@ -28,7 +27,7 @@ const ShareLink = ({token, disabled = false}) => {
     return ( <Fragment />
   );
   }
-debugger
+
   return (<Fragment>
       <div className="button-container">
         {!disabled && <button className="btn btn-primary button" onClick={handleClick} disabled={disabled}>COPY SHARE LINK</button>}

@@ -11,7 +11,6 @@ module Api
 
       def serialize
         data = JSON.parse(request.body.read)
-
         response = OpenAiService.new(MARKETING_CONSULTANT_PROMPT, data).call
 
         render json: { data: response }

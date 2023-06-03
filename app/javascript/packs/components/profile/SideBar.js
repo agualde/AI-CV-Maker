@@ -4,13 +4,9 @@ import Loader from "../loader/Loader";
 import axios from 'axios';
 import './profile.scss'
 
-import myImage from '../../../../assets/images/robot-with-a-gear';
-
 const SideBar = ({ about, className, disabled, token }) => {
   const [waiting, setWaiting] = useState(false);
   const [data, setData] = useState(about);
-
-
 
   const getCsrfToken = () => {
     const metas = document.getElementsByTagName('meta');
@@ -25,7 +21,7 @@ const SideBar = ({ about, className, disabled, token }) => {
   const ajaxPut = async (putData, token) => {
     try {
       setWaiting(true)
-      const response = await axios.put('/api/v1/put/', {putData, token: token}, {
+      const response = await axios.put('/api/v1/put/', {field: 'about_text', data: putData, token: token}, {
         headers: {
           'X-CSRF-Token': getCsrfToken(),
           'Content-Type': 'application/json',

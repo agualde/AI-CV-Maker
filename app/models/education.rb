@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Experience < ApplicationRecord
+class Education < ApplicationRecord
   belongs_to :core_info
 end

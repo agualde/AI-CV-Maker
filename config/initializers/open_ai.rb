@@ -1,6 +1,3 @@
-
-require 'chatgpt/client'
-
 class OpenAi
   def self.instance
     @instance ||= OpenAI::Client.new

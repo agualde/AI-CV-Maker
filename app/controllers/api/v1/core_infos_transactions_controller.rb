@@ -8,7 +8,7 @@ module Api
 
       def update
         core_info = CoreInfo.find(@id)
-        core_info.update!(about_text: params['putData'])
+        core_info.update!({params['field']=> params['data']})
         return render json: { status: 'success', message: 'Update successful' }, status: 200
       end
 

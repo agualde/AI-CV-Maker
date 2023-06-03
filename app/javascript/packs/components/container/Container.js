@@ -49,7 +49,7 @@ const Container = ({token}) => {
 
   if (!data) return <Loader/>
 
-  return (<Fragment>
+return (<Fragment>
     <div className="custom-container" style={containerStyle}>
       <div style={indexStyle}>
         <IndexSideBar data={data}/>

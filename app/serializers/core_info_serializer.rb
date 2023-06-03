@@ -11,6 +11,11 @@ class CoreInfoSerializer < ActiveModel::Serializer
              :avatar, 
              :about
 
+  has_many :experiences
+
+  has_many :educations
+
+
   def email
     "#{object.name&.downcase&.gsub(' ', '')}@gmail.com"
   end

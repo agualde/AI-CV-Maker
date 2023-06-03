@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_215447) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_162618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_215447) do
     t.string "image_url"
   end
 
+  create_table "educations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "institution"
+    t.string "degree"
+    t.string "description"
+    t.uuid "core_info_id", null: false
+    t.datetime "duration_start"
+    t.datetime "duration_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["core_info_id"], name: "index_educations_on_core_info_id"
+  end
+
   create_table "experience_skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "experience_id", null: false
     t.uuid "skill_id", null: false
@@ -43,10 +55,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_215447) do
     t.string "duration_end"
     t.string "company_name"
     t.string "description"
-    t.uuid "user_id", null: false
+    t.uuid "core_info_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_experiences_on_user_id"
+    t.index ["core_info_id"], name: "index_experiences_on_core_info_id"
   end
 
   create_table "skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -76,9 +88,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_215447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "educations", "core_infos"
   add_foreign_key "experience_skills", "experiences"
   add_foreign_key "experience_skills", "skills"
-  add_foreign_key "experiences", "users"
+  add_foreign_key "experiences", "core_infos"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

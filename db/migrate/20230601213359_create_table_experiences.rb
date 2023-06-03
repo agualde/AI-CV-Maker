@@ -6,7 +6,7 @@ class CreateTableExperiences < ActiveRecord::Migration[7.0]
       t.string :duration_end
       t.string :company_name
       t.string :description
-      t.references :user, null: false, type: :uuid, foreign_key: true, index: true
+      t.references :core_info, null: false, type: :uuid, foreign_key: true, index: true
 
       t.timestamps
     end

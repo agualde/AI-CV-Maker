@@ -30,7 +30,18 @@ const ProfileHeader = ({ name, title, location, avatar, token, disabled, about }
                     whiteSpace: 'nowrap'}}
                   />
       </div>
-      <p>{location}</p>
+
+      <InlineEdit
+                text={location}
+                staticElement="p"
+                style={{}}
+                activeClassName="editing form-control"
+                paramName="message"
+                change={dataChanged}
+                validate={() => true}
+                editMode={false}
+                placeholder={"Tell us where you're from!"}/>
+
       <ShareLink token={token} disabled={disabled}/>
       <SideBar about={about} className={'mt-5 info'} disabled={disabled} token={token}/>
     </div>

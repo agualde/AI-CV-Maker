@@ -7,7 +7,6 @@ import './profile.scss';
 
 const Profile = ({data, token, disabled }) => {
 
-  debugger
   const experiences = data.experiences;
   const educations = data.educations
   delete data.experiences
@@ -16,12 +15,12 @@ const Profile = ({data, token, disabled }) => {
 
   return (<Fragment>
     <div className="profile-page">
-      <ProfileHeader {...data} token={token} disabled={disabled}/>
+      <ProfileHeader {...coreInfo} token={token} disabled={disabled}/>
       <div className="post-feed">
-        <PostFeed header={'Experience'} posts={experiences} />
+        <PostFeed header={'Experience'} posts={experiences} token={token} disabled={disabled} endPoint={'/api/v1/experiences_put'} />
         <br />
         <br />
-        <PostFeed header={'Education'} posts={educations} />
+        <PostFeed header={'Education'} posts={educations} token={token} disabled={disabled} endPoint={'/api/v1/educations_put'}/>
       </div>
       <Icons/>
     </div>

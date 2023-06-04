@@ -1,64 +1,38 @@
 import React, {Fragment, useState} from "react"
 import InlineEdit from 'react-edit-inplace';
 import Loader from "../loader/Loader";
-import axios from 'axios';
 import './profile.scss'
+import { postDataToGpt, ajaxPut } from './../../utils/ajaxCalls'
 
 const SideBar = ({ about, className, disabled, token }) => {
   const [waiting, setWaiting] = useState(false);
   const [data, setData] = useState(about);
 
-  const getCsrfToken = () => {
-    const metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === 'csrf-token') {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  };
+  const endpoint = '/api/v1/core_infos_put/'
 
-  const ajaxPut = async (putData, token) => {
+  const handleClick = async (about) => {
+    setWaiting(true);
+  
     try {
-      setWaiting(true)
-      const response = await axios.put('/api/v1/put/', {field: 'about_text', data: putData, token: token}, {
-        headers: {
-          'X-CSRF-Token': getCsrfToken(),
-          'Content-Type': 'application/json',
-        },
-      });
-
-      setWaiting(false)
+        const response = await postDataToGpt(about);
+        ajaxPut('about_text', response.data['data'], token, endpoint);
+        setData(response.data['data']);
     } catch (error) {
-      console.error(`Error: ${error}`);
+        console.log(error);
+    } finally {
+        setWaiting(false);
     }
-  };
-
-  const postDataToGpt = async (about) => {
-    try {
-      setWaiting(true)
-      const response = await axios.post('/api/v1/p/', {about: about}, {
-        headers: {
-          'X-CSRF-Token': getCsrfToken(),
-          'Content-Type': 'application/json',
-        },
-      });
-
-      ajaxPut(response.data['data'], token)
-      setData(response.data['data'])
-      setWaiting(false)
-    } catch (error) {
-      console.error(`Error: ${error}`);
-    }
-  };
-
-  const handleClick = (about) => {
-    postDataToGpt(about);
   }
 
   const dataChanged = (data) => {
-    ajaxPut(data.message, token)
+    if(disabled){return data.message}
+
+    setWaiting(true)
+
+    ajaxPut('about_text', data.message, token, endpoint)
     setData(data.message)
+
+    setWaiting(false)
   };
 
   if (waiting) {
@@ -83,7 +57,7 @@ const SideBar = ({ about, className, disabled, token }) => {
                     change={dataChanged}
                     editingElement="textarea"
                     validate={() => true}
-                    editMode={false}
+                    editing={false}
                     placeholder={'Tell us about yourself!'}
                   />
 

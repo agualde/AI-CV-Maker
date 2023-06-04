@@ -18,7 +18,10 @@ Rails.application.routes.draw do
       get 'core_infos/:token', to: 'core_infos#show', constraints: { token: /[^\/]+/ }, as: 'core_info'
       post '/p', to: 'gpt#serialize', as: 'gpt'
 
-      put '/put', to: 'core_infos_transactions#update'
+      put '/core_infos_put', to: 'core_infos_transactions#update'
+      put '/experiences_put', to: 'experiences_transactions#update'
+      put '/educations_put', to: 'educations_transactions#update'
+
 
       post '/generate_link/:token', to: 'temporary_links#generate', constraints: { token: /[^\/]+/ }, format: false, as: 'generate_link'
       get '/show_link/:token', to: 'temporary_core_infos#show', constraints: { token: /[^\/]+/ }, format: false, as: 'show_link'

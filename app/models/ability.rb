@@ -10,6 +10,9 @@ class Ability
 
     can :manage, CoreInfo, user_id: user.id
 
+    user.core_infos.each do |core_info|
+      can :manage, Education, core_info_id: core_info.id
+    end
     return unless user.try(:admin?)
     can :manage, :all
   end

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
+      get 'core_infos/', to: 'core_infos_index#index'
+
       get 'core_infos/:token', to: 'core_infos#show', constraints: { token: /[^\/]+/ }, as: 'core_info'
       post '/p', to: 'gpt#serialize', as: 'gpt'
 

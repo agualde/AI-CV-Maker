@@ -5,11 +5,12 @@ class CoreInfosController < ApplicationController
   load_and_authorize_resource
 
   def index
+    render json: @core_infos, each_serializer: CoreInfosIndexSerializer
   end
 
   def show
-    core_info = CoreInfo.find_or_create_by(user: current_user)
-    encrypted_id = core_info.id
-    @token = JwtHelper.encrypt(encrypted_id)
+    core_info = current_user.core_infos.last
+    id = core_info.id
+    @token = JwtHelper.encrypt(id)
   end
 end

@@ -7,8 +7,8 @@ module Api
 
       def serialize
         data = JSON.parse(request.body.read)
-        prompt_key = data.keys[0]
-        data = data[prompt_key]
+        prompt_key = data['key']
+        data = data['value']
         response = OpenAiService.new(prompt_key, data).call
 
         render json: { data: response }

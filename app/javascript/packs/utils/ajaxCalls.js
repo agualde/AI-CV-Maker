@@ -25,9 +25,9 @@ export const ajaxPut = async (field, putData, token, endpoint) => {
   }
 };
 
-export const postDataToGpt = async (about) => {
+export const postDataToGpt = async (key, value) => {
   try {
-    const response = await axios.post('/api/v1/p/', {about: about}, {
+    const response = await axios.post('/api/v1/p/', {key: key, value: value}, {
       headers: {
         'X-CSRF-Token': getCsrfToken(),
         'Content-Type': 'application/json',

@@ -13,6 +13,6 @@ class OpenAi
 
     response.dig("choices", 0, "message", "content")
   rescue => e
-    byebug
+    message
   end
 end

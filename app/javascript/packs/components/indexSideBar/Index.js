@@ -3,19 +3,18 @@ import IndexItem from "./IndexItem";
 import POSTButton from "./POSTButton";
 import './IndexSideBar.scss'
 
-const Index = ({coreInfos}) => {
+const Index = ({data}) => {
 
   return(<Fragment>
-    <div className="index-tower">
-
         <POSTButton />
 
-        <div className="index-list">
-          {coreInfos.map((info, index) => (
-            <IndexItem key={index} info={info} />
-          ))}
+        <div className="index-tower">
+            <div className="index-list">
+              {data.map((info, index) => (
+                <IndexItem key={index} title={info.title} token={info.id}/>
+              ))}
+            </div>
         </div>
-    </div>
   </Fragment>)
 }
 

@@ -1,9 +1,9 @@
 .index-side-bar {
-
+  // max-height: 100vh;
 }
 
 .index-tower {
-  height: 93vh;
+  height: 87vh;
   border-bottom: 1px solid white;
   overflow: scroll;
 }
@@ -64,8 +64,17 @@
 
 .index-list{
   padding-top: 1rem;
+  max-height: 100%;
+  overflow: scroll;
 }
 
 .btn {
   transition: color 0.05s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.index-loader-wrapper{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

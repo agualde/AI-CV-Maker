@@ -76,14 +76,14 @@
 }
 
 .chat-gpt {
-  color: white;
+  color: white!important;
   cursor: pointer;
   width: 100% !important;
   margin-top: 1rem;
 }
 
 .chat-gpt:hover{
-  color: white;
+  color: white!important;
 }
 
 .section-loader{
@@ -99,7 +99,8 @@
 }
 
 .editing{
-  height: calc(100% + 15px);
+  min-height: 8rem!important;
+  // height: 100%;
   width: 100%;
 }
 
@@ -112,4 +113,15 @@
   font-size: '0.3rem';
   text-align: 'center';
   white-space: 'nowrap';
+}
+
+input::placeholder {
+  color: red;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.hidden-button {
+  background-color: #ffc10775!important;
+  border-color: #ffc10703!important;
 }

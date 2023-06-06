@@ -1,8 +1,12 @@
-import React, {Fragment, useState, useEffect} from "react";
+import React, {Fragment, useState, useEffect, useContext} from "react";
 import './shareLink.scss';
 import axios from 'axios';
+import { TokenContext } from "../tokenContext/TokenContext";
 
-const ShareLink = ({token, disabled = false}) => {
+const ShareLink = ({disabled = false}) => {
+
+  const { token } = useContext(TokenContext);
+
 
   async function fetchData() {
     try {

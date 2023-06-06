@@ -1,30 +1,11 @@
-import React, {Fragment, useState, useEffect} from "react";
-import Loader from "../loader/Loader";
+import React, {useState} from "react";
 import Profile from "../profile/Profile";
 import './container.scss';
-import axios from 'axios';
 import IndexSideBar from "../indexSideBar/IndexSideBar";
+import { TokenContext } from "../tokenContext/TokenContext";
 
-const Container = ({token}) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const baseUrl = 'http://localhost:3000'
-        const endPoint = `/api/v1/core_infos/${token}`
-        const url = `${baseUrl}${endPoint}`
-        const response = await axios.get(url);
-
-        setData(response.data);
-      } catch (err) {
-        console.log(err)
-        window.location.href = '/forbidden';
-      }
-    }
-
-    fetchData();
-  }, []);
+const Container = () => {
+  const [token, setToken] = useState(null);
 
   const containerStyle = {
     display: 'flex',
@@ -47,21 +28,17 @@ const Container = ({token}) => {
     backgroundColor: 'white'
   };
 
-  if (!data) return <Loader/>
-
-return (<Fragment>
+return (<TokenContext.Provider value={{ token, setToken }}>
     <div className="custom-container" style={containerStyle}>
       <div style={indexStyle}>
-        <IndexSideBar data={data}/>
+        <IndexSideBar />
       </div>
       <div style={showStyle}>
-        <Profile data={data} token={token} disabled={false}/>
+        <Profile disabled={false}/>
       </div>
     </div>
-    </Fragment>
+    </TokenContext.Provider>
   );
 }
-
-
 
 export default Container;

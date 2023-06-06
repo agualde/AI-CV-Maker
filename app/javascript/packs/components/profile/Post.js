@@ -79,7 +79,8 @@ const Post = ({ id, header, sub_header, description, disabled, token, section })
     setDescriptionValue(description)
   }, [header, sub_header, description]);
 
-  const disabledFunction = descriptionValue === ""
+  debugger
+  const disabledFunction = (descriptionValue === "" || descriptionValue === null) 
   const buttonClass = disabledFunction ? 'hidden-button' : ''
 
   const dictionary = {Experience: {headerPlaceHolder: 'Where?', subheaderPlaceHolder: 'Role?'}, Education:  {headerPlaceHolder: 'Where?', subheaderPlaceHolder: 'Degree?'}}

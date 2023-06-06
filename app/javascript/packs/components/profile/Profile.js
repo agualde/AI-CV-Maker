@@ -47,7 +47,7 @@ const Profile = ({ disabled }) => {
     <div className="profile-page">
       <ProfileHeader {...data} token={token} disabled={disabled}/>
       <div className="post-feed">
-        {/* <PostFeed header={'Experience'} posts={experiences} token={token} disabled={disabled} /> */}
+        <PostFeed header={'Experience'} posts={experiences} token={token} disabled={disabled} />
         <br />
         <br />
         <PostFeed header={'Education'} posts={educations} token={token} disabled={disabled} />

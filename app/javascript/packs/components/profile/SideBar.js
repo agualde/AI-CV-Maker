@@ -12,7 +12,6 @@ const SideBar = ({ about, className, disabled, token }) => {
 
   const handleClick = async (about) => {
     setWaiting(true);
-  
     try {
         const response = await postDataToGpt('about', about);
         ajaxPut('about_text', response.data['data'], token, endPoint);
@@ -52,7 +51,7 @@ const SideBar = ({ about, className, disabled, token }) => {
     )
   }
 
-  const disabledFunction = about === ""
+  const disabledFunction =  (data === "" || data === null) 
   const buttonClass = disabledFunction ? 'chat-gpt btn btn-warning hidden-button' : 'chat-gpt btn btn-warning'
 
   return ( <Fragment>
@@ -64,7 +63,7 @@ const SideBar = ({ about, className, disabled, token }) => {
                 <div style={{minHeight: '8rem'}}>
                     <InlineEdit
                       text={data}
-                      activeClassName="editing form-control"
+                      activeClassName="editing-description form-control"
                       paramName="message"
                       change={dataChanged}
                       editingElement="textarea"

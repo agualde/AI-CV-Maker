@@ -99,7 +99,19 @@
 }
 
 .editing{
+  // min-height: 8rem!important;
+  // height: 100%;
+  width: 100%;
+}
+
+.editing-description{
   min-height: 8rem!important;
+  // height: 100%;
+  width: 100%;
+}
+
+.editing-about{
+  min-height: 19rem!important;
   // height: 100%;
   width: 100%;
 }
@@ -124,4 +136,24 @@ input::placeholder {
 .hidden-button {
   background-color: #ffc10775!important;
   border-color: #ffc10703!important;
+}
+
+.profile-loader {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-loader{
+  min-height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  height: 100vh!important;
 }

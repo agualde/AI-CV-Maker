@@ -6,7 +6,7 @@ class Ability
   def initialize(user) 
     user ||= User.new # guest user (not logged in)
 
-    can :generate, :temporary_links
+    can :create, :temporary_links
 
     can :manage, CoreInfo, user_id: user.id
 

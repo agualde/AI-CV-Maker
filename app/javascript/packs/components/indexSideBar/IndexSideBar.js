@@ -46,7 +46,7 @@ const IndexSideBar = () => {
     <div className="index-side-bar">
       <Index data={indexData}/>
 
-      <UserFunction data={indexData}/>
+      <UserFunction email={indexData[0]['email']}/>
     </div>
   </Fragment>)
 }

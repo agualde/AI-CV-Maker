@@ -3,7 +3,7 @@ import Post from "./Post";
 import PlaceHolderPost from "./PlaceHolderPost";
 
 const PostFeed = ({ header, posts, token, disabled }) => {
-debugger
+
 if(posts === undefined){return(<Fragment>
   <h1 className="mb-4">{header}</h1>
 <PlaceHolderPost/>

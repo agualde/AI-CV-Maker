@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       put '/educations_put', to: 'educations_transactions#update'
 
 
-      post '/generate_link/:token', to: 'temporary_links#generate', constraints: { token: /[^\/]+/ }, format: false, as: 'generate_link'
+      post '/generate_link/:token', to: 'temporary_links#create', constraints: { token: /[^\/]+/ }, format: false, as: 'generate_link'
       get '/show_link/:token', to: 'temporary_core_infos#show', constraints: { token: /[^\/]+/ }, format: false, as: 'show_link'
     end
   end

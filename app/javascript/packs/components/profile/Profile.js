@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect, useContext} from "react";
+import React, {Fragment, useState, useEffect, useContext, useMemo} from "react";
 import ProfileHeader from "./ProfileHeader";
 import PostFeed from "./PostFeed";
 import Loader from "../loader/Loader";
@@ -24,7 +24,7 @@ const Profile = ({ disabled }) => {
         setData(response.data);
       } catch (err) {
         console.log(err)
-        // window.location.href = '/forbidden';
+        window.location.href = '/forbidden';
       }
     }
 
@@ -35,13 +35,13 @@ const Profile = ({ disabled }) => {
     setData(data);
   }, [data])
 
-  if (!data) return <Loader/>
-
-  const experiences = data.experiences;
-  const educations = data.educations
-  delete data.experiences
-  delete data.educationHistory
-  const coreInfo = data
+  if (!data) return( 
+  <div className="profile-loader">
+    <Loader/>
+  </div>
+  ) 
+  
+  const { experiences, educations} = data;
 
   return (<Fragment>
     <div className="profile-page">

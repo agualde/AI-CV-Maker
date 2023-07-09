@@ -5,6 +5,8 @@ module Api
     class EducationsTransactionsController < ActionController::API
       before_action :decrypt_id, only: [:update]
       before_action :authenticate_user!
+      authorize_resource :core_info
+      authorize_resource :education
 
       DICTIONARY = {
         header: :institution, 

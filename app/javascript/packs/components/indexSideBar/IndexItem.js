@@ -2,18 +2,19 @@ import React, {Fragment, useContext} from "react";
 import { TokenContext } from "../tokenContext/TokenContext";
 import './IndexSideBar.scss'
 
-const IndexItem = ({title, token}) => {
-  let classForItem = "btn index-item";
-  const { setToken } = useContext(TokenContext);
+const IndexItem = ({title, incomingToken}) => {
+  const { token, setToken } = useContext(TokenContext);
 
-  function handleItemClick(token) {
-    setToken(token);
-    console.log("Token set to: ", token)
+  const classForItem = (token == incomingToken) ? "selected btn index-item" : "btn index-item";
+
+  function handleItemClick(incomingToken) {
+    setToken(incomingToken);
+    console.log("Token set to: ", incomingToken)
 
   }
 
   return(<Fragment>
-    <div onClick={()=>{handleItemClick(token)}} className={classForItem}>
+    <div onClick={()=>{handleItemClick(incomingToken)}} className={classForItem}>
         {title}
     </div>
 

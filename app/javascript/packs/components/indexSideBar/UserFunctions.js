@@ -1,16 +1,19 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import './IndexSideBar'
-import UseAnimations from "react-useanimations";
-import menu2 from "react-useanimations/lib/menu2";
 
-const UserFunction = (props) => {
-  const [animationKey, setAnimationKey] = useState(0);
-  const { email } = props.data[0]
+const UserFunction = ({email}) => {
+  const [emailState, setEmailState] = useState(email)
+
+  useEffect(()=>{
+    setEmailState(email)
+  },[email])
 
   return(<Fragment>
-    <div className="index-links btn">
-      <button onClick={() => setAnimationKey(prevKey => prevKey + 1)} className="btn" style={{color: 'white'}}> {email} </button>
-      <UseAnimations key={animationKey} animation={menu2} size={25} strokeColor={'#FFFFFF'}/>
+    <div className="index-links btn" style={{margin: '1rem 0px 0px 0px', padding: '0px', width:'100%'}}>
+      <button className="btn index-item" style={{color: 'white'}}> {emailState}</button>
+      <div>
+        ...
+      </div>
     </div>
   </Fragment>)
 }

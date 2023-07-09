@@ -9,7 +9,8 @@ class CoreInfoSerializer < ActiveModel::Serializer
              :email,
              :title, 
              :avatar, 
-             :about
+             :about,
+             :last_name
 
   has_many :experiences
 
@@ -17,11 +18,15 @@ class CoreInfoSerializer < ActiveModel::Serializer
 
 
   def email
-    "#{object.name&.downcase&.gsub(' ', '')}@gmail.com"
+    "#{object.name&.downcase}#{object.last_name&.downcase }@gmail.com"
   end
 
   def name
-    "#{object.name&.capitalize} #{object.last_name&.capitalize}"
+    object.name&.capitalize
+  end
+
+  def last_name
+    object.last_name&.capitalize
   end
 
   def location 
@@ -29,7 +34,7 @@ class CoreInfoSerializer < ActiveModel::Serializer
   end
 
   def avatar
-    "https://avatars.githubusercontent.com/u/94261580?s=400&u=0c852c05d3714e89f22dd0544f8a296d7f1a9e96&v=4"
+    object.image_url || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
   end
 
   def about

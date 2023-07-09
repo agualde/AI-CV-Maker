@@ -11,7 +11,7 @@ const Index = ({data}) => {
         <div className="index-tower">
             <div className="index-list">
               {data.map((info, index) => (
-                <IndexItem key={index} title={info.title} token={info.id}/>
+                <IndexItem key={index} title={info.title} incomingToken={info.id}/>
               ))}
             </div>
         </div>

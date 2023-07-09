@@ -9,8 +9,9 @@ class CoreInfosController < ApplicationController
   end
 
   def show
-    core_info = current_user.core_infos.last
-    id = core_info.id
-    @token = JwtHelper.encrypt(id)
+  end
+
+  def create
+    core_info = CoreInfo.create!(user: current_user)
   end
 end

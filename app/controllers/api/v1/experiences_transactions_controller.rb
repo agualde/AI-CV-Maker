@@ -5,6 +5,8 @@ module Api
     class ExperiencesTransactionsController < ActionController::API
       before_action :decrypt_id, only: [:update]
       before_action :authenticate_user!
+      authorize_resource :core_info
+      authorize_resource :experience
 
       DICTIONARY = {
         header: :company_name, 

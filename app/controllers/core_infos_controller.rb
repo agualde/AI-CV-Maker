@@ -13,5 +13,7 @@ class CoreInfosController < ApplicationController
 
   def create
     core_info = CoreInfo.create!(user: current_user)
+
+    head :ok
   end
 end

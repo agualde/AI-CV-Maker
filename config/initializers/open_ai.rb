@@ -1,4 +1,6 @@
 class OpenAi
+  include Singleton
+
   def self.instance
     @instance ||= OpenAI::Client.new
   end

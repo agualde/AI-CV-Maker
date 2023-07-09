@@ -10,6 +10,22 @@ const getCsrfToken = () => {
   return '';
 };
 
+export const postData = async () => {
+  debugger
+  try {
+    const response = await axios.post('/core_infos/', {key: null}, {
+      headers: {
+        'X-CSRF-Token': getCsrfToken(),
+        'Content-Type': 'application/json',
+      },
+    });
+debugger
+    return response
+  } catch (error) {
+    console.error(`Error: ${error}`);
+  }
+};
+
 export const ajaxPut = async (field, putData, token, endpoint) => {
   try {
 
@@ -26,6 +42,7 @@ export const ajaxPut = async (field, putData, token, endpoint) => {
 };
 
 export const postDataToGpt = async (key, value) => {
+  debugger
   try {
     const response = await axios.post('/api/v1/p/', {key: key, value: value}, {
       headers: {

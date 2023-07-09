@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get 'core_infos/', to: 'core_infos_index#index'
 
       get 'core_infos/:token', to: 'core_infos#show', constraints: { token: /[^\/]+/ }, as: 'core_info'
-      post '/p', to: 'gpt#serialize', as: 'gpt'
+      post '/p', to: 'gpt#create', as: 'gpt'
 
       put '/core_infos_put', to: 'core_infos_transactions#update'
       put '/experiences_put', to: 'experiences_transactions#update'
@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   end
   
   get 'core_infos', to: 'core_infos#index'
+  post 'core_infos', to: 'core_infos#create'
 end

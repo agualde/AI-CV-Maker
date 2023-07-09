@@ -5,7 +5,7 @@ module Api
     class GptController < ActionController::API
       before_action :authenticate_user!
 
-      def serialize
+      def create
         data = JSON.parse(request.body.read)
         prompt_key = data['key']
         data = data['value']

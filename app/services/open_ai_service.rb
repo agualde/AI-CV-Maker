@@ -4,7 +4,6 @@ class OpenAiService
 
   DICTIONARY = {
     about: ABOUT_SECTION_PROMPT,
-    role: ROLE_PROMPT,
     experiences: EXPERIENCES_SECTION_PROMPT
   }
 

@@ -2,15 +2,10 @@ import React, {Fragment, useState, useEffect} from "react"
 import InlineEdit from 'react-edit-inplace';
 import { postDataToGpt, ajaxPut } from './../../utils/ajaxCalls'
 import Loader from "../loader/Loader";
-import InlineEditableTextfieldDefault from "./InlineEditableTextfieldDefault";
-import InlineEditCustomTextareaExample from "./InlineEditCustomTextareaExample";
-
-
 
 const FetchableTextField = ({ id, description, disabled, token, endPoint }) => {
   const [descriptionValue, setDescriptionValue] = useState(description)
   const [waiting, setWaiting] = useState(false)
-
 
   const descriptionChanged = async (data) => {
     if (disabled) {return}

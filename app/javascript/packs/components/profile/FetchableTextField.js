@@ -58,8 +58,6 @@ const FetchableTextField = ({ id, description, disabled, token, endPoint }) => {
 
   return( <Fragment>
           <div style={{minHeight: '8rem'}}>
-          {/* <InlineEditCustomTextareaExample/>
-          <InlineEditableTextfieldDefault description={descriptionValue}/> */}
             <InlineEdit
                     text={descriptionValue}
                     activeClassName="editing-textfield form-control"

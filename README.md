@@ -1,24 +1,9 @@
-# README
+Acts as your Marketing Consultant!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make CV's with ease leveraging the power of Generative AI. Make the most basic of CV's and let us take over and re-create your content for maximum impact offering suggestions and upgrades.
 
-Things you may want to cover:
+With layers of security guaranteeing confidence in your resources integrity. Sign in through Devise to create resources loaded and secured by CanCanCan which will be tokenized and called from an API serializer endpoint from inside the React component.
 
-* Ruby version
+Share signed RS256 URLS with customizable expiration times to safely share views with recruiters, serialized so any last minute change to your CV is reflected in the recruiters hands always!
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Made using: Ruby on Rails, React, ActiveModel Serializer, Open AI API, AJAX, JWT, Axios

@@ -67,7 +67,7 @@ const FetchableTextField = ({ id, description, disabled, token, endPoint }) => {
           <InlineEditableTextfieldDefault description={descriptionValue}/> */}
             <InlineEdit
                     text={descriptionValue}
-                    activeClassName="editing-description form-control"
+                    activeClassName="editing-textfield form-control"
                     paramName="message"
                     change={descriptionChanged}
                     editingElement="textarea"

@@ -52,7 +52,7 @@
 }
 
 .sidebar {
-  width: 25%;
+  width: 2%;
   padding: 20px;
   margin-top: 12rem;
   display: flex;
@@ -105,8 +105,14 @@
 }
 
 .editing-description{
+  min-height: 15rem!important;
+  height: auto;
+  width: 100%;
+}
+
+.editing-textfield{
   min-height: 8rem!important;
-  // height: 100%;
+  height: auto;
   width: 100%;
 }
 

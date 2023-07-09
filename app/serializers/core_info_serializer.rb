@@ -22,7 +22,7 @@ class CoreInfoSerializer < ActiveModel::Serializer
   end
 
   def name
-    object.name&.capitalize
+    object.name
   end
 
   def last_name

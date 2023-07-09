@@ -68,7 +68,6 @@ const SideBar = ({ about, className, disabled, token }) => {
                       change={dataChanged}
                       editingElement="textarea"
                       validate={() => true}
-                      editing={false}
                       placeholder={'Tell us about yourself!'}
                     />
                 </div>

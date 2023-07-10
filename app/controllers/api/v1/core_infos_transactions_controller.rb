@@ -30,7 +30,7 @@ module Api
       end
 
       def core_info_params
-        params.require(:core_infos_transaction).permit(:field, :data)
+        params.require(:core_infos_transaction).permit(:token, :field, :data)
       end
     end
   end

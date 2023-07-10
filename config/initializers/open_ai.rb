@@ -8,8 +8,10 @@ class OpenAi
   def self.complete(message, options = {}) 
     response = OpenAi.instance.chat(
       parameters: {
-        model: options[:model] || "gpt-3.5-turbo", # Required.
-        messages: [{ role: "user", content: message}], # Required.
+        model: options[:model] || "gpt-3.5-turbo", 
+        messages: [
+          { role: "system", content: 'You are my marketing consultant and are helping me upgrade my CV to land a better job.'}, 
+          { role: "user", content: message}], 
           temperature: options[:temperatue] || 1.0,
       })
 

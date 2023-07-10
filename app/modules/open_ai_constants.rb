@@ -2,7 +2,7 @@ module OpenAiConstants
   ABOUT_SECTION_PROMPT =  "Please modify and improve the following CV 'about section' text for optimal impact and professionalism. 
                            Only respond with the updated CV text, no additional context or acknowledgment is needed. 
                            Adjust the answer so it conveys the same message but add a little spice act as my marketing advisor think that i am not that good at selling myself to recruiters.
-                           But try to keep it to 300 characters maximum.  
+                           But try to keep it to 300 characters.  
                            Return the answer to me in the format of a string that i can reliably parse in my program into a usable hash that i can parse predictibly. 
                            I want you to put my old text under the key 'old_text' and the new text under the key 'new_text'. 
                            I cannot emphazise enough the importance of returning the answer in a string that i can parse into a JSON object. Here's my current text:"

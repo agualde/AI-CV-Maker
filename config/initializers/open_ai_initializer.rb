@@ -1,18 +1,18 @@
-class OpenAi
+class OpenAiInitializer
   include Singleton
 
-  def self.instance
-    @instance ||= OpenAI::Client.new
+  def initialize
+    @client = OpenAI::Client.new
   end
 
-  def self.complete(message, options = {}) 
-    response = OpenAi.instance.chat(
+  def complete(message, options = {}) 
+    response = @client.chat(
       parameters: {
         model: options[:model] || "gpt-3.5-turbo", 
         messages: [
           { role: "system", content: 'You are my marketing consultant and are helping me upgrade my CV to land a better job.'}, 
           { role: "user", content: message}], 
-          temperature: options[:temperatue] || 1.0,
+          temperature: options[:temperature] || 1.0,
       })
 
     response.dig("choices", 0, "message", "content")

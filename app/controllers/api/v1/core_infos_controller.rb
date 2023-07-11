@@ -5,7 +5,7 @@ module Api
       before_action :decrypt_id, only: [:show]
 
       def show
-        @core_info = CoreInfo.find(@id)
+        @core_info = CoreInfo.includes(:educations, :experiences).find(@id)
         serialized_core_info = CoreInfoSerializer.new(@core_info).to_json
         render json: serialized_core_info
       end

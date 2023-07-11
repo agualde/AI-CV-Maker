@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class CoreInfoSerializer < ActiveModel::Serializer
-  include OpenAiConstants
-
   attributes :id,
              :name,
              :location,

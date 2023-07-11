@@ -1,6 +1,7 @@
 class OpenAiService
   attr_accessor :message, :key
-  include OpenAiConstants
+  include OpenAi::Instance
+  include OpenAi::Constants
 
   DICTIONARY = {
     about: ABOUT_SECTION_PROMPT,
@@ -13,7 +14,7 @@ class OpenAiService
   end
 
   def call
-    response = OpenAi.complete("#{DICTIONARY[key]} #{message}")
+    response = open_ai.complete("#{DICTIONARY[key]} #{message}")
     JSON.parse(response)['new_text']
   rescue
     message

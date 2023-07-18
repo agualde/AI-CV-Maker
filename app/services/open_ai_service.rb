@@ -1,7 +1,7 @@
 class OpenAiService
   attr_accessor :message, :key
   include OpenAi::Instance
-  include OpenAi::Constants
+  include OpenAi::Prompts
 
   DICTIONARY = {
     about: ABOUT_SECTION_PROMPT,
